@@ -70,3 +70,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Devise para tener una root page como un login
+gem "devise"
