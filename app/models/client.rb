@@ -13,6 +13,10 @@ class Client < ApplicationRecord
     'Pasaporte' => 5
   }
 
+  def capitalization
+    self.name = self.name.capitalize
+  end
+
   # Validaciones
   validates :name, :document_type, :document_number, :phone, presence: true
 end

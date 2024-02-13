@@ -1,0 +1,14 @@
+<div>
+    <%= simple_form_for @account do |f| %>
+      <%= f.input :bank_id, as: :select, collection: Bank.all %>
+      <%= simple_fields_for :client do |p| %>
+        <%= p.input :name %>
+        <%= p.input :document_type, as: :select, collection: Client.document_types.keys %>
+        <%= p.input :document_number %>
+        <%= p.input :phone %>
+      <% end %>
+      <div>
+        <%= f.submit%>
+      </div>
+    <% end %>
+</div>

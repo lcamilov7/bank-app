@@ -34,7 +34,9 @@ class BanksController < ApplicationController
   end
 
   def destroy
-    raise
+    @bank.destroy!
+
+    redirect_to banks_url, notice: 'Bank deleted'
   end
 
   private
