@@ -1,0 +1,12 @@
+<div>
+    <%= simple_form_for @bank do |f| %>
+      <%= f.input :name %>
+      <%= f.input :nit %>
+      <%= f.input :phone %>
+      <div class="row">
+        <div class="col-1 me-5">
+          <%= f.submit class: "btn btn-primary"%>
+        </div>
+      </div>
+    <% end %>
+</div>
