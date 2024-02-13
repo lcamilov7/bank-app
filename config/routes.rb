@@ -18,5 +18,4 @@ Rails.application.routes.draw do
   root "banks#index"
   resources :banks
   resources :clients
-  resources :accounts, only: %i[new create]
 end

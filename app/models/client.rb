@@ -1,6 +1,7 @@
 class Client < ApplicationRecord
   # Asociaciones con los otros modelos
   has_one :account, dependent: :destroy
+  accepts_nested_attributes_for :account
   has_one :bank, through: :account
 
   enum document_type: {
