@@ -80,3 +80,6 @@ gem 'simple_form-tailwind'
 
 # Dotenv files que no se suben a github
 gem "dotenv-rails"
+
+# Cloudinary
+gem "cloudinary"
