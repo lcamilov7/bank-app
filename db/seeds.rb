@@ -1,9 +1,22 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts 'Eliminando registros'
+Bank.destroy_all
+Client.destroy_all
+Account.destroy_all
+puts 'Registros eliminados'
+
+puts 'Creando bancos'
+bancolombia = Bank.create!(name: 'Bancolombia', nit: '890.903.938-8', phone: '01-800-0912345')
+bbva = Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227')
+puts 'Bancos creados'
+
+puts 'Creando clientes'
+luis = Client.create(name: 'Luis Camilo Valencia', document_type: 3, document_number: 1037670493, phone: '+573046760899')
+sara = Client.create(name: 'Sara Posada', document_type: 2, document_number: 1039470392, phone: '+57379366787')
+laura = Client.create(name: 'Laura Posada', document_type: 2, document_number: 16874907734, phone: '+573004934577')
+puts 'Clientes creados'
+
+puts 'Creando cuentas'
+cuenta_luis = Account.create(number: 892094638, bank_id: bancolombia.id, client_id: luis.id)
+cuenta_sara = Account.create(number: 123289738, bank_id: bbva.id, client_id: sara.id)
+cuenta_laura = Account.create(number: 455278438, bank_id: bbva.id, client_id: laura.id)
+puts 'Cuentas creadas'
