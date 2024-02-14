@@ -6,7 +6,7 @@ Account.destroy_all
 puts 'Registros eliminados'
 
 puts 'Creando usuario'
-User.create(email: 'luiscamilov@symplifica.com', password: '123456')
+User.create(email: 'admin@symplifica.com', password: '123456')
 puts 'Usuario creado'
 
 puts 'Creando bancos'
