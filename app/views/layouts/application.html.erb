@@ -10,11 +10,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="min-height: 100vh; background-size: cover; background-repeat: no-repeat; background-image: url('')">
-    <%= render "layouts/navbar" %>
-    <main>
-      <%= yield %>
-    </main>
-    <%= render "layouts/footer" %>
+  <body style="background-size: cover; background-repeat: no-repeat; background-image: url('https://github.com/lcamilov7/bank-app/blob/master/app/assets/images/fondo.png?raw=true')">
+    <div style="position: relative; min-height: 100vh;">
+      <div style="padding-bottom: 2.5rem;">
+        <%= render "layouts/navbar" %>
+        <main>
+          <%= yield %>
+        </main>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>
