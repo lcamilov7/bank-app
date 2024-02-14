@@ -13,15 +13,25 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
-    @account.number = Faker::Bank.account_number
-    @account.save
-    # Creamos intancia de client usando los params que llegan de la vista
-    # y asignamos la cuenta recien creada @account como asociación
-    @client = Client.new(client_params.merge(account: @account))
-    @client.save
+    # @account = Account.new(account_params)
+    # @account.number = Faker::Bank.account_number
+    # @account.save
+    # # Creamos instancia de client usando los params que llegan de la vista
+    # # y asignamos la cuenta recién creada @account como asociación
+    # @client = Client.new(client_params.merge(account: @account))
 
-    redirect_to root_path, notice: 'Client created'
+    # if @client.save
+    #   redirect_to root_path, notice: 'Client created'
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
+
+    @client = Client.new(client_params)
+    if @client.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -45,10 +55,10 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:name, :document_type, :document_number, :phone)
+    params.require(:client).permit(:name, :document_type, :document_number, :phone, account_attributes: [:bank_id])
   end
 
-  def account_params
-    params[:client].require(:account).permit(:bank_id)
-  end
+  # def account_params
+  #   params[:client].require(:account).permit(:bank_id)
+  # end
 end

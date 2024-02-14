@@ -2,6 +2,7 @@ class Client < ApplicationRecord
   # Asociaciones con los otros modelos
   has_one :account, dependent: :destroy
   has_one :bank, through: :account
+  accepts_nested_attributes_for :account
 
   enum document_type: {
     'Cédula de ciudadania' => 0,
