@@ -11,6 +11,7 @@ class ClientsController < ApplicationController
   end
 
   def create
+    raise
     @client = Client.new(client_params)
     @client.account.number = '13242134'
 

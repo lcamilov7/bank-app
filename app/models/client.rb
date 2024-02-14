@@ -10,8 +10,8 @@ class Client < ApplicationRecord
     'Registro civil' => 2,
     'Cédula de extranjería' => 3,
     'Carné de identidad' => 4,
-    'Documento nacional de identidad' => 4,
-    'Pasaporte' => 5
+    'Documento nacional de identidad' => 5,
+    'Pasaporte' => 6
   }
 
   def capitalization
