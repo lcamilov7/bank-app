@@ -11,15 +11,19 @@ class ClientsController < ApplicationController
   end
 
   def create
-    raise
-    @client = Client.new(client_params)
-    @client.account.number = '13242134'
+    @account = Account.new(account_params)
+    @account.number = '12345'
+    @account.save
+    @client = Client.new(client_params.merge(account: @account))
+    @client.save
 
-    if @client.save
-      redirect_to banks_url, notice: 'Client created'
-    else
-      render :new, status: :unprocessable_entity
-    end
+
+    redirect_to root_path
+    # if @client.save
+    #   redirect_to banks_url, notice: 'Client created'
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def edit
@@ -31,7 +35,13 @@ class ClientsController < ApplicationController
   def destroy
   end
 
+  private
+
   def client_params
-    params.require(:client).permit(:name, :document_type, :document_number, :phone, account_attributes: [:bank_id])
+    params.require(:client).permit(:name, :document_type, :document_number, :phone)
+  end
+
+  def account_params
+    params[:client].require(:account).permit(:bank_id)
   end
 end
