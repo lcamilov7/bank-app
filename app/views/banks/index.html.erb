@@ -1,8 +1,17 @@
-<div>
-  <div class="container">
-    <h4>Banks Index</h4>
-    <div class="d-flex">
-      <%= link_to "Add Client", new_client_path, class: "btn btn-primary" %>
-    </div>
+<div style="width: 75%;" class="mx-auto">
+<% if notice.present? %><%= notice %><% end %>
+  <h2 class="my-5 text-2xl">Look among our <span style="background-color: rgba(67,56,202,0.1);" class="text-indigo-700 font-bold p-1"><%= Bank.all.count %> banks</span></h2>
+  <%= link_to "Create Bank", new_bank_path , class: "w-20 rounded p-2 mb-5 text-white", style: "background-color: #4338CA"%>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 15px;" class="my-5">
+    <% @banks.each do |bank| %>
+      <%= link_to bank_path(bank) do %>
+        <div class="rounded shadow hover:bg-violet-600 active:bg-violet-700 flex items-center justify-center" style="<%= cycle("background-color: rgba(67,56,202,0.1);", "background-color: #FFFFFF") %>; height: 150px;">
+          <div class="text-center">
+            <h2><%= bank.name%></h2>
+            <p class="text-xs">Accounts: <%= bank.accounts.count %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

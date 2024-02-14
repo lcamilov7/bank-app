@@ -12,6 +12,15 @@ puts 'Usuario creado'
 puts 'Creando bancos'
 bancolombia = Bank.create!(name: 'Bancolombia', nit: '890.903.938-8', phone: '01-800-0912345')
 bbva = Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
 puts 'Bancos creados'
 
 puts 'Creando clientes'
