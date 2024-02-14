@@ -1,4 +1,15 @@
 <div style="width: 75%;" class="mx-auto">
   <% if notice.present? %><%= notice %><% end %>
-  <h1><%= @bank.name %></h1>
+  <div>
+    <h1><%= @bank.name %></h1>
+    <p><%= @bank.nit %></p>
+    <p><%= @bank.phone %></p>
+  </div>
+  <div>
+    <%= link_to "Edit Bank", edit_bank_path(@bank) %>
+    <%= link_to "Delete Bank", bank_path(@bank), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+  </div>
+  <div class="overflow-scroll" style="height: 330px;">
+    <%= render "banks/table", bank: @bank %>
+  </div>
 </div>
