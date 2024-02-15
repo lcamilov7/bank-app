@@ -4,5 +4,5 @@ class Account < ApplicationRecord
   belongs_to :client
 
   # Validaciones
-  validates :number, :bank_id, :client_id, presence: true
+  validates :number, :bank_id, presence: true
 end

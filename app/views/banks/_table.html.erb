@@ -1,7 +1,7 @@
-<div>
-  <table style="width: 100%; margin: 0 auto;">
+<div class="mx-2">
+  <table style="width: 100%; margin: 0 auto; background-color: rgba(0,0,0,0.1)" class="sm:table-fixed">
     <thead>
-      <tr>
+      <tr class="text-indigo-900 border border-slate-500">
         <th scope="col">Account's Number</th>
         <th scope="col">Client</th>
         <th scope="col">Client's ID</th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <% @bank.clients.each do |client| %>
-        <tr>
+        <tr >
           <td><%= client.account.number %></td>
           <td><%= client.name %></td>
           <td><%= client.document_number %></td>
