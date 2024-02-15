@@ -1,10 +1,10 @@
-<%= simple_form_for @client do |f| %>
+<%= simple_form_for client do |f| %>
   <%= f.input :name %>
   <%= f.input :document_type, as: :select, collection: Client.document_types.keys %>
   <%= f.input :document_number %>
   <%= f.input :phone %>
-  <%= f.simple_fields_for :account do |p| %>
+  <% if client.new_record? %><%= f.simple_fields_for :account do |p| %>
     <%= p.input :bank_id, as: :select, collection: Bank.all %>
-  <% end %>
+  <% end %> <% end %>
   <%= f.submit %>
 <% end %>

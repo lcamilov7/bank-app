@@ -20,4 +20,5 @@ class Client < ApplicationRecord
 
   # Validaciones
   validates :name, :document_type, :document_number, :phone, presence: true
+  validates :document_number, uniqueness: true
 end

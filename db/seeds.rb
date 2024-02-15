@@ -10,27 +10,26 @@ User.create(email: 'admin@symplifica.com', password: '123456')
 puts 'Usuario creado'
 
 puts 'Creando bancos'
-bancolombia = Bank.create!(name: 'Bancolombia', nit: '890.903.938-8', phone: '01-800-0912345')
-bbva = Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
-Bank.create!(name: 'Banco BBVA', nit: '01-8000-912-227', phone: '01-8000-912-227')
+Bank.create!(name: 'Bancolombia', nit: '8909039388', phone: '01-800-0912345')
+Bank.create!(name: 'Banco BBVA', nit: '8600030201', phone: '01 8000 912 227')
+Bank.create!(name: 'Banco Caja Social', nit: '860007335', phone: '01 8000 910 038')
+Bank.create!(name: 'Banco Coomeva', nit: '900406150', phone: '01 8000 930 932')
+Bank.create!(name: 'Banco de Bogotá', nit: '860002964', phone: '6013820000 ')
+Bank.create!(name: 'Banco de Occidente', nit: '890300279', phone: '01-800-0514652')
+Bank.create!(name: 'Davivienda', nit: '860034313', phone: '01-800-0123838')
+Bank.create!(name: 'Banco Pichincha', nit: '8902007567', phone: '01 8000 919918')
+Bank.create!(name: 'Banco Popular', nit: '860007738', phone: '01-800-0523456')
+Bank.create!(name: 'Banco Falabella', nit: '900047981', phone: '1 587 8000')
+Bank.create!(name: 'Citibank', nit: '860051135', phone: '01 8000 523838')
+Bank.create!(name: 'JP Morgan', nit: '900114346', phone: '6013269637')
+Bank.create!(name: 'Banco Agrario', nit: '800037800', phone: '01-800-0915000')
+Bank.create!(name: 'Banco Credifinanciera', nit: '900200960', phone: '01 8000 95 0303')
 puts 'Bancos creados'
 
-puts 'Creando clientes'
-luis = Client.create(name: 'Luis Camilo Valencia', document_type: 3, document_number: '1037670493', phone: '+573046760899')
-sara = Client.create(name: 'Sara Posada', document_type: 2, document_number: '1039470392', phone: '+57379366787')
-laura = Client.create(name: 'Laura Posada', document_type: 2, document_number: '16874907734', phone: '+573004934577')
-puts 'Clientes creados'
-
-puts 'Creando cuentas'
-Account.create(number: '892094638', bank_id: bancolombia.id, client_id: luis.id)
-Account.create(number: '123289738', bank_id: bbva.id, client_id: sara.id)
-Account.create(number: '455278438', bank_id: bbva.id, client_id: laura.id)
-puts 'Cuentas creadas'
+puts 'Creando clientes y cuentas'
+50.times do
+  cliente = Client.create(name: Faker::Name.name, document_type: rand(7), document_number: Faker::IDNumber.valid, phone: (Faker::PhoneNumber.country_code + ' ' + Faker::PhoneNumber.cell_phone))
+  cuenta = cliente.build_account(number: Faker::Bank.account_number, bank_id: rand(1..14))
+  cuenta.save!
+end
+puts 'Clientes y cuentas creados'

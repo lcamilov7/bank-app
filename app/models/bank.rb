@@ -5,4 +5,5 @@ class Bank < ApplicationRecord
 
   # Validaciones
   validates :name, :nit, :phone, presence: true
+  validates :nit, uniqueness: true
 end
