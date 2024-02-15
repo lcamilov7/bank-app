@@ -27,7 +27,8 @@ class ClientsController < ApplicationController
     # end
 
     @client = Client.new(client_params)
-    if @client.save
+    @client.account.number = Faker::Bank.account_number
+    if @client.save!
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
