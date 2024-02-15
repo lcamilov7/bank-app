@@ -5,8 +5,7 @@ class ClientsController < ApplicationController
     @clients = Client.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @client = Client.new
@@ -17,25 +16,26 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.account.number = Faker::Bank.account_number
     if @client.save!
-      redirect_to bank_path(@client.bank), notice: 'Client created'
+      redirect_to bank_url(@client.bank), notice: 'Client created'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-    @client.build_account unless @client.account
-  end
+  def edit; end
 
   def update
     if @client.update(client_params)
-      redirect_to root_path, notice: 'Client modified successfully'
+      redirect_to client_url(@client), notice: 'Client modified successfully'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @client.destroy!
+
+    redirect_to clients_url, notice: 'Client deleted'
   end
 
   private

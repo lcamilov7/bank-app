@@ -5,8 +5,7 @@ class BanksController < ApplicationController
     @banks = Bank.all.order(:id)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @bank = Bank.new
@@ -22,8 +21,7 @@ class BanksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @bank.update(bank_params)
