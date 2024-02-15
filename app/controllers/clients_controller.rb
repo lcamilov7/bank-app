@@ -24,9 +24,15 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    @client.build_account unless @client.account
   end
 
   def update
+    if @client.update(client_params)
+      redirect_to root_path, notice: 'Client modified successfully'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -39,6 +45,6 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:name, :document_type, :document_number, :phone, account_attributes: [:bank_id])
+    params.require(:client).permit(:name, :document_type, :document_number, :phone, account_attributes: %i[bank_id id])
   end
 end
