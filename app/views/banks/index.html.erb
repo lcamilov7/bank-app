@@ -2,12 +2,12 @@
 <% if notice.present? %><%= notice %><% end %>
   <div class="flex justify-between">
     <h2 class="my-5 text-2xl text-white">Look among our <span style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded"><%= Bank.all.count %> banks</span></h2>
-    <div class="flex items-center"><%= link_to "Create Bank", new_bank_path , class: "w-28 rounded p-2 text-white", style: "background-color: #4338CA"%></div>
+    <div class="flex items-center"><%= link_to "Create Bank", new_bank_path , class: "rounded p-2 text-white hover:text-black", style: "background-color: #4338CA"%></div>
   </div>
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 15px;" class="mt-2 mb-20">
     <% @banks.each do |bank| %>
       <%= link_to bank_path(bank) do %>
-        <div class="rounded shadow hover:bg-violet-600 active:bg-violet-700 flex items-center justify-center" style="<%= cycle("background-color: #ECEBFA;", "background-color: #FFFFFF") %>; height: 150px;">
+        <div class="rounded shadow hover:text-white flex items-center justify-center" style="<%= cycle("background-color: #ECEBFA;", "background-color: #FFFFFF") %>; height: 150px;">
           <div class="text-center">
             <h2 class="font-bold"><%= bank.name%></h2>
             <p class="text-xs">Accounts: <%= bank.accounts.count %></p>

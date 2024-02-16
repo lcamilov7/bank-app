@@ -16,7 +16,7 @@ class Client < ApplicationRecord
   }
 
   def capitalization
-    self.name = self.name.capitalize
+    self.name = self.name.titleize
   end
 
   def make_account_number

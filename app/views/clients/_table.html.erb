@@ -2,21 +2,27 @@
   <table style="width: 100%; margin: 0 auto;" class="sm:table-fixed">
     <thead>
       <tr class="text-white border border-slate-500 bg-indigo-700">
-        <th scope="col">Account's Number</th>
-        <th scope="col">Client</th>
+        <th scope="col">Name</th>
+        <th scope="col">Document Type</th>
         <th scope="col">Client's ID</th>
         <th scope="col">Client's phone</th>
+        <th scope="col">Bank</th>
+        <th scope="col">Account's Number</th>
         <th scope="col">Account's creation</th>
+        <th scope="col">See</th>
       </tr>
     </thead>
     <tbody>
-      <% @bank.clients.each do |client| %>
+      <% @clients.each do |client| %>
         <tr style="<%= cycle("background-color: #FFFFFF", "background-color: #ECEBFA;") %>;" class="text-center">
-          <td><%= client.account.number %></td>
           <td><%= client.name %></td>
+          <td><%= client.document_type %></td>
           <td><%= client.document_number %></td>
           <td><%= client.phone %></td>
+          <td><%= client.bank.name %></td>
+          <td><%= client.account.number %></td>
           <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= link_to "See client", client_path(client), class: "underline hover:text-indigo-700" %></td>
         </tr>
       <% end %>
     </tbody>

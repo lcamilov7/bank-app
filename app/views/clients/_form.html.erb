@@ -1,10 +1,18 @@
-<%= simple_form_for client do |f| %>
-  <%= f.input :name %>
-  <%= f.input :document_type, as: :select, collection: Client.document_types.keys %>
-  <%= f.input :document_number %>
-  <%= f.input :phone %>
-  <%= f.simple_fields_for :account do |p| %>
-    <%= p.input :bank_id, as: :select, collection: Bank.all %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<div class="w-full flex flex-col justify-center items-center" style="height: 75vh;">
+  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded mb-5 mt-5">Create an Account</h2>
+  <div class="w-2/4 text-black">
+    <%= simple_form_for client do |f| %>
+      <%= f.input :name, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Client's name"%>
+      <%= f.input :document_type, as: :select, collection: Client.document_types.keys, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Bank's name", :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Document type" %>
+      <%= f.input :document_number, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "ID Number" %>
+      <%= f.input :phone, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Client's personal phone" %>
+      <%= f.simple_fields_for :account do |p| %>
+        <%= p.input :bank_id, as: :select, collection: Bank.all, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Bank" %>
+      <% end %>
+      <div class="mt-5">
+        <%= f.submit class: "rounded p-2 hover:bg-sky-700 text-white", style: "background-color: #4338CA" %>
+        <%= link_to "Back", banks_path, class: "border mx-5 p-2 rounded hover:text-white" %>
+      </div>
+    <% end %>
+  </div>
+</div>

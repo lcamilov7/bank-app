@@ -1,14 +1,13 @@
 <div class="w-full flex flex-col justify-center items-center" style="height: 75vh;">
-  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded">Create a Bank</h2>
-  <div class="w-2/4">
+  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded mb-5">Create a Bank</h2>
+  <div class="w-2/4 text-black">
     <%= simple_form_for bank do |f| %>
-      <%= f.input :name %>
-      <%= f.input :nit %>
-      <%= f.input :phone %>
-      <div class="row">
-        <div class="col-1 me-5">
-          <%= f.submit%>
-        </div>
+      <%= f.input :name, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Bank's name"  %>
+      <%= f.input :nit, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => 'NIT (Número de identificación tributaria)' %>
+      <%= f.input :phone, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => 'Phone' %>
+      <div class="mt-5">
+          <%= f.submit class: "rounded p-2 hover:bg-sky-700 text-white", style: "background-color: #4338CA" %>
+          <%= link_to "Back", banks_path, class: "border mx-5 p-2 rounded hover:text-white" %>
       </div>
     <% end %>
   </div>
