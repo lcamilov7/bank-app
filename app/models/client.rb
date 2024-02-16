@@ -3,6 +3,7 @@ class Client < ApplicationRecord
   has_one :account, dependent: :destroy
   has_one :bank, through: :account
   accepts_nested_attributes_for :account
+  after_validation :capitalization
 
   enum document_type: {
     'Cédula de ciudadania' => 0,
