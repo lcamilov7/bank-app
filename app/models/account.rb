@@ -5,4 +5,5 @@ class Account < ApplicationRecord
 
   # Validaciones
   validates :number, :bank_id, presence: true
+  validates :number, uniqueness: true
 end

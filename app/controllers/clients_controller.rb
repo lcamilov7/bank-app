@@ -14,7 +14,8 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
-    @client.account.number = Faker::Bank.account_number
+    # @client.account.number = Faker::Bank.account_number
+    @client.make_account_number(Account.all)
     if @client.save!
       redirect_to bank_url(@client.bank), notice: 'Client created'
     else
