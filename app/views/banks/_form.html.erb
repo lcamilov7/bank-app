@@ -1,12 +1,13 @@
-<div class="w-full flex justify-center items-center" style="height: 75vh;">
-  <div style="width: 75%; background; border-radius: 10px; background-color: rgba(0,0,0,0.1)">
+<div class="w-full flex flex-col justify-center items-center" style="height: 75vh;">
+  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded">Create a Bank</h2>
+  <div class="w-2/4">
     <%= simple_form_for bank do |f| %>
       <%= f.input :name %>
       <%= f.input :nit %>
       <%= f.input :phone %>
       <div class="row">
         <div class="col-1 me-5">
-          <%= f.submit class: "btn btn-primary"%>
+          <%= f.submit%>
         </div>
       </div>
     <% end %>

@@ -19,11 +19,11 @@ class Client < ApplicationRecord
     self.name = self.name.capitalize
   end
 
-  def make_account_number(all_accounts)
+  def make_account_number
     auxiliar = false
     begin
       account = Faker::Bank.account_number
-      all_accounts.each do |instance|
+      Account.all.each do |instance|
         auxiliar = true if account == instance.number
       end
     end while auxiliar == true
