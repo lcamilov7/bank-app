@@ -13,22 +13,26 @@
       </tr>
     </thead>
     <tbody>
-      <% @clients.each do |client| %>
-        <tr style="<%= cycle("background-color: #FFFFFF", "background-color: #ECEBFA;") %>;" class="text-center">
-          <td><%= client.name %></td>
-          <td><%= client.document_type %></td>
-          <td><%= client.document_number %></td>
-          <td><%= client.phone %></td>
-          <td><%= client.bank.name %></td>
-          <td><%= client.account.number %></td>
-          <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
-          <td>
-            <div>
-              <%= link_to "Edit", edit_client_path(client), class: "hover:underline" %>
-              <%= link_to "Delete", client_path(client), class: "hover:underline", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-            </div>
-          </td>
-        </tr>
+      <% cache clients do %>
+        <% clients.each do |client| %>
+          <% cache client do %>
+            <tr style="<%= cycle("background-color: #FFFFFF", "background-color: #ECEBFA;") %>;" class="text-center">
+              <td><%= client.name %></td>
+              <td><%= client.document_type %></td>
+              <td><%= client.document_number %></td>
+              <td><%= client.phone %></td>
+              <td><%= client.bank.name %></td>
+              <td><%= client.account.number %></td>
+              <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
+              <td>
+                <div>
+                  <%= link_to "Edit", edit_client_path(client), class: "hover:underline" %>
+                  <%= link_to "Delete", client_path(client), class: "hover:underline", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                </div>
+              </td>
+            </tr>
+          <% end  %>
+        <% end %>
       <% end %>
     </tbody>
   </table>
