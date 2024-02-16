@@ -22,7 +22,12 @@
           <td><%= client.bank.name %></td>
           <td><%= client.account.number %></td>
           <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
-          <td><%= link_to "See client", client_path(client), class: "underline hover:text-indigo-700" %></td>
+          <td>
+            <div>
+              <%= link_to "Edit", edit_client_path(client), class: "hover:underline" %>
+              <%= link_to "Delete", client_path(client), class: "hover:underline", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>

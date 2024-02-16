@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col justify-center items-center" style="height: 75vh;">
-  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded mb-5 mt-5">Create an Account</h2>
+  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded mb-5 mt-5"> <%= client.new_record? ? "Create client's account" : "Update client's account" %> </h2>
   <div class="w-2/4 text-black">
     <%= simple_form_for client do |f| %>
       <%= f.input :name, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Client's name"%>
@@ -11,7 +11,7 @@
       <% end %>
       <div class="mt-5">
         <%= f.submit class: "rounded p-2 hover:bg-sky-700 text-white", style: "background-color: #4338CA" %>
-        <%= link_to "Back", banks_path, class: "border mx-5 p-2 rounded hover:text-white" %>
+        <%= link_to "Back", clients_path, class: "border mx-5 p-2 rounded hover:text-white" %>
       </div>
     <% end %>
   </div>
