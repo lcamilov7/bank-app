@@ -2,7 +2,7 @@
   <div class="flex justify-center mt-4 px-4"><% if notice.present? %><p style="background-color: rgba(0,0,0,0.1);" class="text-indigo-700 font-bold"><%= notice %></p><% end %></div>
   <div class="flex justify-between">
     <h2 class="my-5 text-2xl text-white">Look among our <span style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded"><%= Bank.all.count %> banks</span></h2>
-    <div class="flex items-center"><%= link_to "Create Bank", new_bank_path , class: "rounded p-2 text-white hover:text-black", style: "background-color: #4338CA"%></div>
+    <div class="flex items-center"><%= link_to "Create Bank", new_bank_path , class: "rounded p-2 bg-indigo-700 text-white hover:bg-indigo-900"%></div>
   </div>
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 15px;" class="mt-2 mb-20">
     <% @banks.each do |bank| %>

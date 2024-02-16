@@ -1,15 +1,15 @@
 <div style="width: 75%;" class="mx-auto">
-  <div class="flex justify-center mt-4 px-4"><% if notice.present? %><p style="background-color: rgba(0,0,0,0.1);" class="text-indigo-700 font-bold"><%= notice %></p><% end %></div>
+  <div class="flex justify-center mt-2 px-4"><% if notice.present? %><p style="background-color: rgba(0,0,0,0.1);" class="text-indigo-700 font-bold"><%= notice %></p><% end %></div>
   <div class="border-b border-gray-500 py-2 text-white"><h1 class="text-4xl font-bold" style="text-shadow: 1px 1px 1px black;"><%= @bank.name %></h1></div>
   <div class="text-white mt-5">
-    <p>NIT: <%= @bank.nit %></p>
-    <p>Phone: <%= @bank.phone %></p>
-    <p>Accounts: <%= @bank.accounts.count %></p>
+    <p><i class="fa-solid fa-address-card"></i> <%= @bank.nit %></p>
+    <p><i class="fa-solid fa-phone"></i> <%= @bank.phone %></p>
+    <p><i class="fa-solid fa-people-group"></i> <%= @bank.accounts.count %></p>
   </div>
   <br>
   <div>
-    <%= link_to "Edit Bank", edit_bank_path(@bank), class: "rounded p-2 hover:bg-sky-700 text-white bg-indigo-700" %>
-    <%= link_to "Delete Bank", bank_path(@bank), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "rounded p-2 hover:bg-sky-700 text-white bg-red-700" %>
+    <%= link_to "Edit Bank", edit_bank_path(@bank), class: "rounded p-2 hover:bg-indigo-900 text-white bg-indigo-700" %>
+    <%= link_to "Delete Bank", bank_path(@bank), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "rounded p-2 hover:bg-red-900 text-white bg-red-700" %>
     <%= link_to "Back", banks_path, class: "border rounded p-2 hover:text-white" %>
   </div>
   <div class="overflow-scroll my-5" style="height: 280px; background-color: rgba(0,0,0,0.05);">

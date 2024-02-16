@@ -25,9 +25,9 @@
               <td><%= client.account.number %></td>
               <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
               <td>
-                <div>
-                  <%= link_to "Edit", edit_client_path(client), class: "hover:underline" %>
-                  <%= link_to "Delete", client_path(client), class: "hover:underline", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                <div class="flex justify-evenly">
+                  <div><%= link_to  edit_client_path(client) do %><i class="fa-solid fa-pen-to-square hover:text-slate-500"></i><% end %></div>
+                  <div><%= link_to client_path(client), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %><i class="fa-solid fa-circle-xmark text-red-700 hover:text-red-900"></i><% end %></div>
                 </div>
               </td>
             </tr>

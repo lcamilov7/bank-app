@@ -83,3 +83,7 @@ gem "dotenv-rails"
 
 # Fakker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+
+# Sass & Font Awesome
+gem "sassc-rails"
+gem "font-awesome-sass", "~> 6.1"
