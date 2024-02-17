@@ -1,3 +1,4 @@
+# Elimino todos los registros de la base de datos
 puts 'Eliminando registros'
 User.destroy_all
 Bank.destroy_all
@@ -5,10 +6,12 @@ Client.destroy_all
 Account.destroy_all
 puts 'Registros eliminados'
 
+# Creo usuario
 puts 'Creando usuario'
 User.create(email: 'admin@symplifica.com', password: '123456')
 puts 'Usuario creado'
 
+# Creo bancos
 puts 'Creando bancos'
 Bank.create!(name: 'Bancolombia', nit: '8909039388', phone: '01-800-0912345')
 Bank.create!(name: 'Banco BBVA', nit: '8600030201', phone: '01 8000 912 227')
@@ -26,6 +29,7 @@ Bank.create!(name: 'Banco Agrario', nit: '800037800', phone: '01-800-0915000')
 Bank.create!(name: 'Banco Credifinanciera', nit: '900200960', phone: '01 8000 95 0303')
 puts 'Bancos creados'
 
+# Creamos clientes y cuentas apoyado de faker en un loop para 50 clientes y sus respectivas cuentas
 puts 'Creando clientes y cuentas'
 50.times do
   cliente = Client.create(name: Faker::Name.name, document_type: rand(7), document_number: Faker::IDNumber.valid, phone: (Faker::PhoneNumber.country_code + ' ' + Faker::PhoneNumber.cell_phone))

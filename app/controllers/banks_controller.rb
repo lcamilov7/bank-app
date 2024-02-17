@@ -1,5 +1,5 @@
 class BanksController < ApplicationController
-  # Seteamos la instaancia de Bank para los métodos necesarios
+  # Seteamos la instancia de Bank para los métodos especificados
   before_action :set_bank, only: %i[show edit update destroy]
 
   def index
