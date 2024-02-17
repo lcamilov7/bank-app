@@ -1,17 +1,17 @@
-<div class="w-full flex flex-col justify-center items-center" style="height: 75vh;">
-  <h2 style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded mb-5 mt-5"> <%= client.new_record? ? "Create client's account" : "Update client's account" %> </h2>
+<div class="form-container">
+  <h2 class="form-title"> <%= client.new_record? ? "Create client's account" : "Update client's account" %> </h2>
   <div class="w-2/4 text-black">
     <%= simple_form_for client do |f| %>
-      <%= f.input :name, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Client's name"%>
-      <%= f.input :document_type, as: :select, collection: Client.document_types.keys, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Bank's name", :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Document type" %>
-      <%= f.input :document_number, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "ID Number" %>
-      <%= f.input :phone, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Client's personal phone" %>
+      <%= f.input :name, :input_html => { :class => "form-input" }, :label => "Client's name"%>
+      <%= f.input :document_type, as: :select, collection: Client.document_types.keys, :input_html => { :class => "form-input" }, :label => "Bank's name" %>
+      <%= f.input :document_number, :input_html => { :class => "form-input" }, :label => "ID Number" %>
+      <%= f.input :phone, :input_html => { :class => "form-input" }, :label => "Client's personal phone" %>
       <%= f.simple_fields_for :account do |p| %>
-        <%= p.input :bank_id, as: :select, collection: Bank.all, :input_html => { :style => "border-radius: 10px; background-color: rgba(255,255,255,0.2); color: black;" }, :label => "Bank" %>
+        <%= p.input :bank_id, as: :select, collection: Bank.all, :input_html => { :class => "form-input" }, :label => "Bank" %>
       <% end %>
       <div class="mt-5">
-        <%= f.submit class: "rounded p-2 hover:bg-sky-700 text-white", style: "background-color: #4338CA" %>
-        <%= link_to "Back", clients_path, class: "border mx-5 p-2 rounded hover:text-white" %>
+        <%= f.submit class: "button-1" %>
+        <%= link_to "Back", clients_path, class: "button-3" %>
       </div>
     <% end %>
   </div>
