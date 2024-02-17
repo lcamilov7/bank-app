@@ -33,4 +33,15 @@ class Client < ApplicationRecord
   # Validaciones
   validates :name, :document_type, :document_number, :phone, presence: true
   validates :document_number, :phone, uniqueness: true
+
+  # PG Search
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name, :document_number, :phone ],
+  associated_against: {
+    account: [ :number ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

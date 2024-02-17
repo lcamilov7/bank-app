@@ -2,7 +2,16 @@ class ClientsController < ApplicationController
   before_action :set_client, only: %i[show edit update destroy]
 
   def index
-    @clients = Client.all.order('id DESC')
+    if params[:query].present?
+      @clients = Client.global_search(params[:query])
+    else
+      @clients = Client.all.order('id DESC')
+    end
+
+    respond_to do |format|
+      format.html # Flujo normal que hace rails
+      format.text { render partial: "clients/table", locals: {clients: @clients}, formats: [:html] }
+    end
   end
 
   def show; end

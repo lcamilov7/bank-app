@@ -1,10 +1,27 @@
-<div style="width: 75%;" class="mx-auto">
-<div class="flex justify-center mt-4 px-4"><% if notice.present? %><p style="background-color: rgba(0,0,0,0.1);" class="text-indigo-700 font-bold"><%= notice %></p><% end %></div>
-  <div class="flex justify-between">
-    <h2 class="my-5 text-2xl text-white">Clients <span style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded"><%= Client.all.count %></span> in total!</h2>
-    <div class="flex items-center"><%= link_to "Create account", new_client_path , class: "text-center rounded p-2 text-white hover:bg-indigo-900 bg-indigo-700"%></div>
+<div data-controller="search-clients">
+  <div style="width: 75%;" class="mx-auto">
+  <div class="flex justify-center mt-4 px-4"><% if notice.present? %><p style="background-color: rgba(0,0,0,0.1);" class="text-indigo-700 font-bold"><%= notice %></p><% end %></div>
+    <div class="flex justify-between">
+      <h2 class="my-5 text-2xl text-white">Clients <span style="background-color: #ECEBFA;" class="text-indigo-700 font-bold p-1 rounded"><%= Client.all.count %></span> in total!</h2>
+      <div class="flex items-center"><%= link_to "Create account", new_client_path , class: "text-center rounded p-2 text-white hover:bg-indigo-900 bg-indigo-700"%></div>
+    </div>
+    <div>
+          <%= form_with url: clients_path, method: :get,
+          html: {data: {search_clients_target: "form"}} do %>
+          <span class="fa-solid fa-magnifying-glass lupa"></span>
+          <%= text_field_tag :query, nil, class: "form-control",
+          placeholder:"Search client by: name; ID, account",
+          value: params[:query],
+          data: {
+            search_clients_target: "input",
+            action: "keyup->search-clients#update"
+            }%>
+          <% end %>
+    </div>
   </div>
+    <div class="overflow-scroll my-5 mx-auto" style="height: 350px; background-color: rgba(0,0,0,0.05); width: 90%;">
+      <%# Lista de Clientes %>
+      <%= render "clients/table", clients: @clients %>
+      <%# Fin de lista de clientes %>
+    </div>
 </div>
-  <div class="overflow-scroll my-5 mx-auto" style="height: 390px; background-color: rgba(0,0,0,0.05); width: 90%;">
-    <%= render "clients/table", clients: @clients %>
-  </div>
