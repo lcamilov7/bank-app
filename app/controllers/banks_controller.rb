@@ -25,7 +25,7 @@ class BanksController < ApplicationController
 
   def update
     if @bank.update(bank_params)
-      redirect_to bank_url(@bank), notice: 'Bank updates succesfully'
+      redirect_to bank_url(@bank), notice: 'Bank updated succesfully'
     else
       render :edit, status: :unprocessable_entity
     end

@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
     # @client.account.number = Faker::Bank.account_number
     @client.make_account_number
     if @client.save!
-      redirect_to bank_url(@client.bank), notice: 'Client created'
+      redirect_to clients_url, notice: 'Client created'
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(client_params)
-      redirect_to client_url(@client), notice: 'Client modified successfully'
+      redirect_to clients_url, notice: 'Client modified successfully'
     else
       render :edit, status: :unprocessable_entity
     end
