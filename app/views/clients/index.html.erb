@@ -18,10 +18,10 @@
             }%>
           <% end %>
     </div>
-  </div>
-    <div class="overflow-scroll my-5 mx-auto" style="<%= notice.present? ? "height: 300px; " : "height: 350px; " %>background-color: rgba(0,0,0,0.05); width: 90%;">
+    <div class="overflow-scroll my-5 mx-auto" style="<%= notice.present? ? "height: 300px; " : "height: 350px; " %>background-color: rgba(0,0,0,0.05);">
       <%# Lista de Clientes %>
       <%= render "clients/table", clients: @clients %>
       <%# Fin de lista de clientes %>
     </div>
+  </div>
 </div>

@@ -11,7 +11,7 @@
       <% end %>
       <div class="mt-5">
         <%= f.submit class: "button-1" %>
-        <%= link_to "Back", clients_path, class: "button-3" %>
+        <%= link_to "Back", client.new_record? ? clients_path : client_path(@client), class: "button-3" %>
       </div>
     <% end %>
   </div>

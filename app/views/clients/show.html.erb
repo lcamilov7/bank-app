@@ -1,0 +1,21 @@
+<div style="width: 75%;" class="mx-auto">
+  <div class="flex justify-center mt-2 px-4"><% if notice.present? %><p class="form-title"><%= notice %></p><% end %></div>
+  <div class="border-b border-gray-500 py-2 text-white"><h1 class="text-4xl font-bold" style="text-shadow: 1px 1px 1px black;"><%= @client.name %></h1></div>
+  <div class="text-white my-5">
+    <p><i class="fa-solid fa-address-card"></i>  <%= @client.document_type %>, # <%= @client.document_number %></p>
+    <p><i class="fa-solid fa-phone"></i>  <%= @client.phone %></p>
+    <p><i class="fa-solid fa-building-columns"></i>  <%= @client.bank.name %>, # <%= @client.account.number %></p>
+  </div>
+  <div class="mb-5">
+    <%= link_to "See Bank", bank_path(@client.bank), class: "button-1" %>
+  </div>
+  <div class="border-t border-gray-500 text-white py-10">
+    <p>Created at: <%= @client.created_at.strftime("%d/%m/%Y") %></p>
+    <p>Last updated at: <%= @client.updated_at.strftime("%d/%m/%Y") %></p>
+  </div>
+  <div>
+    <%= link_to "Edit Client", edit_client_path(@client), class: "button-1" %>
+    <%= link_to "Delete Client", client_path(@client), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "button-2" %>
+    <%= link_to "Back", clients_path, class: "button-3" %>
+  </div>
+</div>

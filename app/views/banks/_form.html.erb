@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h2 class="form-title">Create a Bank</h2>
+  <h2 class="form-title"> <%= bank.new_record? ? "Create a bank" : "Update bank" %> </h2>
   <div class="w-2/4 text-black">
     <%= simple_form_for bank do |f| %>
       <%= f.input :name, :input_html => { :class => "form-input" }, :label => "Bank's name"  %>

@@ -42,7 +42,7 @@ class Client < ApplicationRecord
   # PG Search
   include PgSearch::Model
   pg_search_scope :global_search, # Nombre del método para invocar PG Search
-  against: [ :name, :document_number, :phone ], # campos del modelo Client que aplican para la busqueda
+  against: %i[ name document_number phone ], # campos del modelo Client que aplican para la busqueda
   associated_against: {
     account: [:number],
     bank: [:name] # Campos de modelos asociados a client que aplican a la busqueda
