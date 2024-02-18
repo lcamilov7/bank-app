@@ -1,4 +1,4 @@
-BankApp documentación
+Documentación BankApp
 
 * Versión de Ruby: Ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 
@@ -15,7 +15,6 @@ BankApp documentación
 * La aplicación cuenta con cacheado que deberá ser activado con rails dev:cache
 
 * A la fecha no se han creado test (17-02-2024), pero se planean incluir
-
 
 * Como usuario de la aplicación se puede:
 

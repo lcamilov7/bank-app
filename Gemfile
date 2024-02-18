@@ -78,9 +78,6 @@ gem "devise"
 gem "simple_form", "~> 5.3"
 gem 'simple_form-tailwind'
 
-# Dotenv files que no se suben a github
-gem "dotenv-rails"
-
 # Fakker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 

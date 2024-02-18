@@ -44,7 +44,8 @@ class Client < ApplicationRecord
   pg_search_scope :global_search, # Nombre del metodo para invocar PG Search
   against: [ :name, :document_number, :phone ], # campos del modelo Client que aplican para la busqueda
   associated_against: {
-    account: [ :number ] # Campos de modelos asociados a client que aplican a la busqueda
+    account: [:number],
+    bank: [:name] # Campos de modelos asociados a client que aplican a la busqueda
   },
   using: {
     tsearch: { prefix: true } # Para aceptar busquedas incompletas o no tan precisas
