@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
   end
 
   # @client sera la nueva instancia de Client y recibe los params del form, seguido le asignamos
-  # un numero de cuanta con el metodo de clase make_account_number
+  # un numero de cuenta con el metodo de clase make_account_number
   def create
     @client = Client.new(client_params)
     @client.make_account_number
