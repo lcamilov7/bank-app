@@ -14,8 +14,6 @@ Documentación BankApp
 
 * La aplicación cuenta con cacheado que deberá ser activado con rails dev:cache
 
-* A la fecha no se han creado test (17-02-2024), pero se planean incluir
-
 * Como usuario de la aplicación se puede:
 
   - Ingresar al contenido de la aplicación mediante un login con un email y
