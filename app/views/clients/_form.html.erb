@@ -3,7 +3,7 @@
   <div class="w-2/4 text-black">
     <%= simple_form_for client do |f| %>
       <%= f.input :name, :input_html => { :class => "form-input" }, :label => "Client's name"%>
-      <%= f.input :document_type, as: :select, collection: Client.document_types.keys, :input_html => { :class => "form-input" }, :label => "Bank's name" %>
+      <%= f.input :document_type, as: :select, collection: Client.document_types.keys, :input_html => { :class => "form-input" }, :label => "Document type" %>
       <%= f.input :document_number, :input_html => { :class => "form-input" }, :label => "ID Number" %>
       <%= f.input :phone, :input_html => { :class => "form-input" }, :label => "Client's personal phone" %>
       <%= f.simple_fields_for :account do |p| %>

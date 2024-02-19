@@ -1,4 +1,4 @@
-# RECORDAR SIEMPRE HACER rails db:drop, rails db:create, rails db:migrate ANTES DE CORRER LA SEED
+puts 'RECORDAR SIEMPRE HACER rails db:drop, rails db:create, rails db:migrate ANTES DE CORRER LA SEED'
 # Elimino todos los registros de la base de datos
 puts 'Eliminando registros'
 User.destroy_all

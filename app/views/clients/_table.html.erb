@@ -20,8 +20,8 @@
               <td><%= client.document_type %></td>
               <td><%= client.name %></td>
               <td><%= client.phone %></td>
-              <td><%= client.bank.name %></td>
-              <td><%= client.account.number %></td>
+              <td><%= client.bank.name if client.bank %></td>
+              <td><%= client.account.number  if client.account %></td>
               <td>
                 <div>
                   <%= link_to client_path(client) do %><i class="fa-solid fa-eye hover:text-indigo-500"></i><% end %>

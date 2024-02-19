@@ -37,8 +37,12 @@ class BanksController < ApplicationController
     end
   end
 
-  # Eliminamos la instancia y redireccionamos al index de banks
+  # Eliminamos las instancias de clientes del banco, el dependent destroy elimina las cuentas y redireccionamos al index de banks
   def destroy
+    @bank.clients.each do |client|
+      Client.find(client.id).destroy
+    end
+
     @bank.destroy!
 
     redirect_to banks_url, notice: 'Bank deleted'
