@@ -39,10 +39,6 @@ class BanksController < ApplicationController
 
   # Eliminamos las instancias de clientes del banco, el dependent destroy elimina las cuentas y redireccionamos al index de banks
   def destroy
-    # @bank.clients.each do |client|
-    #   Client.find(client.id).destroy
-    # end
-
     @bank.destroy!
 
     redirect_to banks_url, notice: 'Bank deleted', status: :see_other # Redirección equivalente a 301
