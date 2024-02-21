@@ -37,7 +37,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.make_account_number
     if @client.save!
-      redirect_to clients_url, notice: 'Client created'
+      redirect_to client_url(@client), notice: 'Client created'
     else
       render :new, status: :unprocessable_entity
     end

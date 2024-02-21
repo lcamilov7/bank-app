@@ -27,6 +27,7 @@ class Client < ApplicationRecord
   def make_account_number
     auxiliar = false
     begin
+      auxiliar = false
       account = Faker::Bank.account_number
       Account.all.each do |instance|
         auxiliar = true if account == instance.number
