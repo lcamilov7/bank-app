@@ -1,9 +1,9 @@
 class Client < ApplicationRecord
   # Asociaciones con los otros modelos
-  has_many :accounts, dependent: :destroy
-  has_many :banks, through: :accounts
+  has_one :account, dependent: :destroy
+  has_one :bank, through: :accounts
   # Nested attributes para la instancia de account asociada
-  # accepts_nested_attributes_for :account
+  accepts_nested_attributes_for :account
   after_validation :capitalization
 
   # El campo document_type será guardado como un enum para usar menos recursos
