@@ -6,7 +6,7 @@ class Client < ApplicationRecord
   accepts_nested_attributes_for :account
   after_validation :capitalization
 
-  # El campo document_type será guardado como un enum para usar menos recursos
+  # El campo document_type será guardado como un enum para usar menos recursos,
   enum document_type: {
     'Cédula de ciudadania' => 0,
     'Tarjeta de identidad' => 1,
